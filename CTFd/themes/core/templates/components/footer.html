@@ -2,13 +2,18 @@
 <style>
     .footer {
         background-color: black;
-        height: 440px;
+        min-height: 440px;
         padding: 72px 60px 72px 60px;
         color: white;
         line-height: normal;
         position: absolute;
         bottom: 0;
 
+    }
+
+    .logo-footer{
+        width: 106px;
+        height: 46px;
     }
 
     .pb-72 {
@@ -39,6 +44,10 @@
         margin-right: 30px;
     }
 
+    .mt-70{
+        margin-top: 70px;
+    }
+
     .w-320 {
         width: 320px;
     }
@@ -57,13 +66,32 @@
     .border-radius-3{
         border-radius: 3px;
     }
+
+    @media (max-width: 768px) {
+        .footer{
+            padding: 20px;
+        }
+        .top-footer{
+            display: block !important;
+            padding-bottom: 50px;
+        }
+        
+        .contact-desc{
+            margin-bottom: 20px;
+        }
+        .bottom-footer{
+            padding-top: 20px;
+        }
+
+    }
+
 </style>
 {% endblock %}
 
 <footer class="footer">
-    <div class="d-flex justify-content-between border-bottom pb-72">
-        <div class="">
-            <img src="/themes/core/static/img/logo_cyber_jutsu.png" alt="">
+    <div class="d-flex justify-content-between border-bottom pb-72 top-footer">
+        <div class="logo-contact">
+            <img class="logo-footer" src="/themes/core/static/img/logo_cyber_jutsu.png" alt="">
             <div class="d-flex contact-desc mt-30">
                 <div class="mr-30">
                     <div>Email</div>
@@ -75,13 +103,13 @@
                 </div>
             </div>
         </div>
-        <div class="w-320">
+        <div class="w-320 try-learn">
             <h4>Học Thử Miễn Phí Khoá Web Pentest 2024</h4>
             <button class="btn-try-learn mt-12">Học Thử Ngay!</button>
         </div>
     </div>
 
-    <div class="d-flex justify-content-between pt-72 font-s-14">
+    <div class="d-flex justify-content-between pt-72 font-s-14 bottom-footer">
         <div>CyberJutsu JSC, 2023</div>
         <div>
             <button class="border-radius-3">
