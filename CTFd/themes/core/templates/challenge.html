@@ -1,12 +1,74 @@
+{% block stylesheets %}
+	<style>
+		.model-card-challenge{
+			padding: 60px;
+			border-radius: 12px !important;
+			border: solid 2px black;
+		}
+
+		@media (max-width: 768px) {
+    		.model-card-challenge {
+				padding: 30px;
+			}
+		}
+
+		.nav-tabs{
+			/* font-size: 24px; */
+			margin-top: 20px;
+			margin-bottom: 20px;
+			border: none;
+		}
+
+		.nav-item-challenge{
+			border-right: solid 1px black;
+		}
+		.nav-link{
+			color: black !important;
+			padding-top: 0;
+			padding-bottom: 0;
+			
+		}
+		.nav-link:hover{
+			border: none;
+		}
+
+		.nav-link.active{
+			color: #9c9c9c !important;
+			border: none;
+		}
+
+		.challenge-name{
+			/* font-size: 36px; */
+			font-weight: bold;
+		}
+		.challenge-image{
+			width: 140px;
+			height: 140px;
+		}
+
+		.challenge-input{
+			border-radius: 5px;
+
+		}
+
+		.challenge-submit{
+			background-color: #01A780;
+			border-radius: 5px;
+			color: white;
+			float: none !important;
+		}
+	</style>
+{% endblock %}
+
 <div class="modal-dialog" role="document">
-	<div class="modal-content">
-		<div class="modal-body">
+	<div class="modal-content model-card-challenge">
+		<div class="modal-body p-0">
 			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 				<span aria-hidden="true">&times;</span>
 			</button>
 			<ul class="nav nav-tabs">
-				<li class="nav-item">
-					<a class="nav-link active" href="#challenge">Challenge</a>
+				<li class="nav-item nav-item-challenge">
+					<a class="nav-link active pl-0" href="#challenge">Challenge</a>
 				</li>
 				{% block solves %}
 					<li class="nav-item">
@@ -21,9 +83,12 @@
 			<div role="tabpanel">
 				<div class="tab-content">
 					<div role="tabpanel" class="tab-pane fade show active" id="challenge">
-						<h2 class='challenge-name text-center pt-3'>
-							{{ challenge.name }}
-						</h2>
+						<div class="d-flex justify-content-between align-items-end">
+							<h2 class='challenge-name pt-3'>
+								{{ challenge.name }}
+							</h2>
+							<img style="width: 140px;" src="/themes/core/static/img/challenge.png" alt="">
+						</div>
 						<h3 class="challenge-value text-center">
 							{{ challenge.value }}
 						</h3>
@@ -37,7 +102,20 @@
 						</div>
 
 						<span class="challenge-desc">{% block description %}{{ challenge.html }}{% endblock %}</span>
-
+						<div class=" d-flex flex-row justify-content-between" style="margin-bottom: 10px; margin-top: 20px;">
+							<div style="color: #9E9E9E;">
+								<svg class="pb-1" xmlns="http://www.w3.org/2000/svg" width="16" height="24" fill="currentColor" class="bi bi-stopwatch-fill" viewBox="0 0 16 16">
+								<path d="M6.5 0a.5.5 0 0 0 0 1H7v1.07A7.001 7.001 0 0 0 8 16a7 7 0 0 0 5.29-11.584l.013-.012.354-.354.353.354a.5.5 0 1 0 .707-.707l-1.414-1.415a.5.5 0 1 0-.707.707l.354.354-.354.354-.012.012A6.97 6.97 0 0 0 9 2.071V1h.5a.5.5 0 0 0 0-1zm2 5.6V9a.5.5 0 0 1-.5.5H4.5a.5.5 0 0 1 0-1h3V5.6a.5.5 0 1 1 1 0"/>
+								</svg>
+								<span>The challenge is not started</span>
+							</div>
+							<div style="color: #1153E4;">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+								<path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+								</svg>
+								<span >Fetch Instance</span>
+							</div>
+						</div>
 						<span class="challenge-connection-info">
 							{% block connection_info %}
 								{% set conn = challenge.connection_info %}
@@ -106,16 +184,19 @@
 						{% endif %}
 
 						<div class="row submit-row">
-							<div class="col-md-9 form-group">
+							<div class="col-md-8 form-group">
 								{% block input %}
 									<input id="challenge-id" class="challenge-id" type="hidden" value="{{ challenge.id }}">
 									<input id="challenge-input" class="challenge-input" type="text" name="answer" placeholder="Flag"/>
 								{% endblock %}
 							</div>
-							<div class="col-md-3 form-group key-submit">
+							<div class="col-md-4 form-group key-submit">
 								{% block submit %}
 								<button id="challenge-submit" class="challenge-submit" type="submit">
 									Submit
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-flag-fill" viewBox="0 0 16 16">
+										<path d="M14.778.085A.5.5 0 0 1 15 .5V8a.5.5 0 0 1-.314.464L14.5 8l.186.464-.003.001-.006.003-.023.009a12 12 0 0 1-.397.15c-.264.095-.631.223-1.047.35-.816.252-1.879.523-2.71.523-.847 0-1.548-.28-2.158-.525l-.028-.01C7.68 8.71 7.14 8.5 6.5 8.5c-.7 0-1.638.23-2.437.477A20 20 0 0 0 3 9.342V15.5a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 1 0v.282c.226-.079.496-.17.79-.26C4.606.272 5.67 0 6.5 0c.84 0 1.524.277 2.121.519l.043.018C9.286.788 9.828 1 10.5 1c.7 0 1.638-.23 2.437-.477a20 20 0 0 0 1.349-.476l.019-.007.004-.002h.001"/>
+									</svg>  
 								</button>
 								{% endblock %}
 							</div>

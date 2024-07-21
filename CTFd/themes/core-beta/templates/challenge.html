@@ -1,5 +1,5 @@
 <div :class="getStyles()" class="" role="document" x-data="Challenge" x-init="id = {{ challenge.id }}">
-  <div class="modal-content border border-dark rounded-4" style="width: 720px; padding: 60px;" >
+  <div class="modal-content border border-dark rounded-4 modal-card-challenge" style="padding: 60px;" >
     <div class="modal-body p-0" >
 
       <div>
@@ -57,7 +57,7 @@
                 </div>
               {% endif %}
   
-              <span class="challenge-desc" style="font-size: 24px;">{% block description %}{{ challenge.html }}{% endblock %}</span>
+              <span class="challenge-desc">{% block description %}{{ challenge.html }}{% endblock %}</span>
 
             </div>
 

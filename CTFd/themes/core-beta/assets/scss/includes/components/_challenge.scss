@@ -1,20 +1,24 @@
 /* Challenge styles
 -------------------------------------------------- */
-
-.challenge-desc {
-  overflow-wrap: anywhere;
-
-  img {
-    max-width: 100%;
+.modal-card-challenge{
+  padding: 60px;
+  .challenge-desc {
+    overflow-wrap: anywhere;
+    font-size: 24px;
+  
+    img {
+      max-width: 100%;
+    }
   }
-}
+  
+  .challenge-button {
+    box-shadow: 3px 3px 3px var(--bs-secondary);
+  }
+  
+  .challenge-solved {
+    background-color: #37d63e !important;
+    opacity: 0.6;
+    border: none;
+  }
 
-.challenge-button {
-  box-shadow: 3px 3px 3px var(--bs-secondary);
-}
-
-.challenge-solved {
-  background-color: #37d63e !important;
-  opacity: 0.6;
-  border: none;
 }
