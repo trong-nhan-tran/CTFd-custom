@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block stylesheets %}
+<style>
+    .banner {
+
+        background-color: #EEEEEE;
+        height: 330px;
+        padding-left: 176px;
+        padding-right: 176px;
+        display: flex;
+        border-bottom: solid 3px black;
+        border-left: solid 3px black;
+        border-right: solid 3px black;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        text-align: center;
+        font-size: 64px;
+        align-items: center;
+        justify-content: space-between;
+        gap: 50px
+    }
+
+    .banner-image {
+        width: 280px;
+    }
+
+    .rule-list {
+        padding: 100px 120px 100px 120px;
+    }
+
+    .rule-list {
+        padding: 100px 120px 100px 120px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+    }
+
+        @media (max-width: 767px) {
+
+            .banner{
+                padding-left: 20px;
+                padding-right: 20px;
+                font-size: 32px;
+                height: 200px;
+            }
+            .banner-image{
+                width: 140px;
+            }
+            .rule-list{
+                padding: 20px;
+                padding-left: 30px;
+            }
+        }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="main-container">
+    <div class="banner">
+        <div class="banner-name">Luật chơi</div>
+
+        <img class="banner-image" src="/themes/core/static/img/rules_banner.png" alt="">
+
+    </div>
+
+    <ol class="rule-list">
+
+        <li>Định dạng flag mặc định là CTF{​​​​​​​…}​​​​​​​</li>
+        <li>Không chia sẻ Flags hoặc cách giải với các thí sinh cùng tham gia cuộc thi.</li>
+        <li>Đây là cuộc thi cá nhân. Trong suốt quá trình thi, thí sinh không thảo luận chi tiết về các thử thách với
+            bất kì ai hoặc trong bất kì kênh chat nào.</li>
+        <li>Nghiêm cấm những hành vi tấn công ngoài phạm vi các thử thách của cuộc thi như DoS/DDoS vào server của cuộc
+            thi, sử dụng công cụ dò quét lỗ hổng tự động,…</li>
+        <li>Sử dụng từ ngữ đúng mực, không mang tính công kích cá nhân làm ảnh hưởng đến tập thể.</li>
+        <li>Tôn trọng tất cả những người chơi và quản trị viên khác.</li>
+        <li>Các quản trị viên có quyền thay đổi các quy tắc bất cứ lúc nào và tất cả các quyết định của các quản trị
+            viên là quyết định cuối cùng.</li>
+        <li>Nếu cần hỗ trợ hoặc có vấn đề gì cần báo cáo, các em có thể tag các quản trị viên trong các channel, hoặc
+            nhắn riêng với quản trị viên.</li>
+        <li>Quyết định của Ban tổ chức là quyết định cuối cùng.</li>
+    </ol>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}
