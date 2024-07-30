@@ -4,8 +4,7 @@ from CTFd.constants.config import  Configs
 from CTFd.utils.dates import ctf_ended, ctf_paused, ctf_started
 from CTFd.utils.decorators import (
     during_ctf_time_only,
-    require_complete_profile,
-    
+    require_complete_profile
 )
 from CTFd.utils.helpers import get_errors, get_infos
 
