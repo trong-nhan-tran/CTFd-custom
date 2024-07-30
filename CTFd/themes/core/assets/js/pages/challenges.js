@@ -452,3 +452,4 @@ const loadHint = id => {
 };
 
 window.updateChallengeBoard = update;
+console.log("Helllloooo")
